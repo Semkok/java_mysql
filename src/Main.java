@@ -1,8 +1,12 @@
+
+
 public class Main {
 
 	public static void main(String[] args) {
-		SendQuery.insertQuery(3,"Robin",2311,1311);
-		SendQuery.readDatabase();
+		
+		SendQuery a = new SendQuery(4,"henk",22,22);
+		
+		
 		
 	}
 
