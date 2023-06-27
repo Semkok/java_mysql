@@ -50,7 +50,7 @@ public class SendQuery {
 		            String user_name = rset.getString(column_user_name);  
 		            int score = rset.getInt(column_score);  
 		            int    performance_points   = rset.getInt(column_performance_points);       
-		            
+		            System.out.println(user_name);
 		            
 		            // moet nog meer returnen!!!
 		            return table_id + " " + id + "\n" + column_user_name + " "  + user_name + "\n" + column_score + " " +  score + "\n" + column_performance_points + " " + performance_points + "\n\n";
@@ -86,12 +86,12 @@ public class SendQuery {
 			    
 			    
 			    //  met id 
-//			    boolean idIsIncluded = info.contains(Integer.toString(id));
+			    boolean idIsIncluded = info.contains(Integer.toString(id));
 			    
 			    // als de speler er al in zit in de highscoretable
 			    if(playerIsIncluded == true) {
 			    	// haalt de speler weg die er al in zit
-			    	String sqlDelete = String.format("DELETE FROM %s WHERE %s = '%s'",table_name,column_user_name,playername);
+			    	String sqlDelete = String.format("DELETE FROM %s WHERE %s = '%s' OR %s = '%s'",table_name,column_user_name,playername,table_id,id);
 			         
 			         stmt.executeUpdate(sqlDelete);
 			       
