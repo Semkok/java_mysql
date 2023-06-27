@@ -25,11 +25,6 @@ public class SendQuery {
 		this.insertQuery(id,name,score,performance_points);
 	}
 	
-	
-	private void createConnection() {
-		
-	}
-	
 	 private ArrayList<String> readDatabase() {
 		
 		 ArrayList<String> info = new ArrayList<String>();
@@ -73,6 +68,7 @@ public class SendQuery {
 	
 	private void insertQuery(int id,String playername,int score,int performance_points) throws SQLException {
 		ArrayList<String> a = readDatabase();
+		ArrayList<Boolean> b = new ArrayList<Boolean>();
 		
 		
 				Connection conn = DriverManager.getConnection(connection,user,password);    
@@ -89,35 +85,27 @@ public class SendQuery {
 			    	System.out.println(i);
 			    	 boolean playerIsIncluded = i.contains(playername);
 			    	 boolean idIsIncluded = i.contains(Integer.toString(id));
-			    	 
-			    	 
-			    	 
-			    	 if(playerIsIncluded == true) {
-					    	// haalt de speler weg die er al in zit
-					    	String sqlDelete = String.format("DELETE FROM %s WHERE %s = '%s' OR %s = '%s'",table_name,column_user_name,playername,table_id,id);
-					         
-					         stmt.executeUpdate(sqlDelete);
-					       
-					    	
-					         String sqlInsert = String.format("INSERT INTO highscores values (%d,'%s',%d,%d)",id,playername,score,performance_points);
-		    		         
-					         stmt.executeUpdate(sqlInsert);
-					    	
-					    	
-					    }
-					    // laat de query door gaan en zorgt dat de nieuwe speler in de highscore table komt 
-					    else {
-					    	String sqlInsert = String.format("INSERT INTO highscores values (%d,'%s',%d,%d)",id,playername,score,performance_points);
-					         stmt.executeUpdate(sqlInsert);
-					    }
-					     
-					     
+			    	 System.out.println(playerIsIncluded);
+			    	 b.add(playerIsIncluded);
+			    	
 					
 			    	 }    
-				        
-				      
-				      
-				      
+			    
+			    
+			    if(b.contains(true)) {
+			    	// haalt de speler weg die er al in zit
+			    	String sqlDelete = String.format("DELETE FROM %s WHERE %s = '%s' OR %s = '%s'",table_name,column_user_name,playername,table_id,id);
+			         
+			         stmt.executeUpdate(sqlDelete);
+
+			    	
+			    }
+			    // laat de query door gaan en zorgt dat de nieuwe speler in de highscore table komt 
+			    if(b.contains(false) ){
+			    	String sqlInsert = String.format("INSERT INTO highscores values (%d,'%s',%d,%d)",id,playername,score,performance_points);
+			         stmt.executeUpdate(sqlInsert);
+			    }
+		
 			    }
 			    
 			
