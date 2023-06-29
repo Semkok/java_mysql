@@ -6,6 +6,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/sem/Desktop/eclipse_work/JDBCTEST/mysql-connector-j-8.0.33.jar"/>
+	<classpathentry kind="lib" path="/home/sem/Desktop/eclipse_work/Query_for_xtapp/mariadb-java-client-3.1.4.jar"/>
+	<classpathentry kind="lib" path="/home/sem/Desktop/mysql-connector-j-8.0.33.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

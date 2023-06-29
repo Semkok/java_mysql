@@ -11,26 +11,30 @@ public class SendQuery {
 	/*ALLE STRINGS ZIJN SPECIFIEK EN MOETEN AANGEPAST WORDEN 
 	 * VOOR EEN SPECIFIEKE DATABASE CONNECTIE*/
 	
+	// Database name
+	final private String databaseName = "xtapp";
 	
 	//SQL table information 
 	final private String table_name = "highscores";
 	
 	//SQL column information 
-	final private String databaseName = "xtapp";
 	final private String table_id = "id";
 	final private String column_user_name = "user_name";
 	final private String column_score = "score";
 	final private String column_performance_points =  "performance_points"; 
 	
 	//connection information
-	final private String connection = "jdbc:mysql://localhost:3306/" + databaseName +"?allowPublicKeyRetrieval=false&useSSL=false&serverTimezone=UTC";
+	final private String server_type = "mysql";
 	final private String user = "root";
 	final private String password = "";
+	final private String connection = "jdbc:" + server_type + "://127.0.0.1:3306/" + databaseName +"?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
+	
 	
 	
 	// Constructor voor het uitvoeren van de insertQuery functie
 	SendQuery(int id,String name, int score, int performance_points) throws SQLException{
 		this.insertQuery(id,name,score,performance_points);
+		
 	}
 	
 	
@@ -43,6 +47,7 @@ public class SendQuery {
 		 ArrayList<String> info = new ArrayList<String>();
 		
 		try (
+				
 				// maakt een connectie met de database
 		         Connection conn = DriverManager.getConnection(connection,user,password);   
 		         
@@ -130,6 +135,13 @@ public class SendQuery {
 			    	String sqlInsert = String.format("INSERT INTO highscores values (%d,'%s',%d,%d)",id,playername,score,performance_points);
 			         stmt.executeUpdate(sqlInsert);
 			        
+			    }
+			    
+			    
+			    // als er nog geen rows zijn met data
+			    if(b.isEmpty()) {
+			    	String sqlInsert = String.format("INSERT INTO highscores values (%d,'%s',%d,%d)",id,playername,score,performance_points);
+			         stmt.executeUpdate(sqlInsert);
 			    }
 			    
 			    // closed de querys 
