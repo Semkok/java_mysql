@@ -1,3 +1,4 @@
+package Querys;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.SQLException;
@@ -9,10 +10,10 @@ public class SendQuery {
 	
 	
 	/*ALLE STRINGS ZIJN SPECIFIEK EN MOETEN AANGEPAST WORDEN 
-	 * VOOR EEN SPECIFIEKE DATABASE CONNECTIE*/
+	 * VOOR EEN SPECIFIEKE DATABASE CONNECTIE, ZIE HIERVOOR DE STRINGS ZIJN NAMEN*/
 	
 	// Database name
-	final private String databaseName = "xtapp";
+	final private String databaseName = "rbout1897_xtp";
 	
 	//SQL table information 
 	final private String table_name = "highscores";
@@ -25,9 +26,9 @@ public class SendQuery {
 	
 	//connection information
 	final private String server_type = "mysql";
-	final private String user = "root";
-	final private String password = "";
-	final private String connection = "jdbc:" + server_type + "://127.0.0.1:3306/" + databaseName +"?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
+	final private String user = "rbout1897_xtp";
+	final private String password = "Bp136Ft3uLd8opuH";
+	final private String connection = "jdbc:" + server_type + "://10.0.0.69:3306/" + databaseName +"?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
 	
 	
 	
@@ -39,7 +40,7 @@ public class SendQuery {
 	
 	
 	// <String> is een reference datatype 
-	 private ArrayList<String> readDatabase() {
+	 public ArrayList<String> readDatabase() {
 		 /*returnt een arraylist met alle rows en informatie van de table*/
 		
 		 
@@ -147,7 +148,9 @@ public class SendQuery {
 			    // closed de querys 
 			    stmt.close();
 			    }
+		
 	
-		    
+		    	
 	}
+
 
