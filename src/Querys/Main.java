@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,6 +17,7 @@ public class Main {
 		JFrame frame = new JFrame("Scoreboard");
 		JPanel panel = new JPanel();
 		JPanel panel1 = new JPanel();
+		
 		
 		
 		ArrayList<String> get = new ArrayList<String>();
@@ -53,20 +55,11 @@ public class Main {
 		panel1.setBackground(Color.blue);
 		panel1.setLocation(25, 20 );
 		panel1.setVisible(true);
+		
 		frame.setLayout(null);
 		
-		
-		
 		panel.add(panel1);
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 	}
 
 }
