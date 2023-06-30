@@ -43,7 +43,7 @@ public class ShowData{
 		      ) {
 		        
 				// De Query die nodig is om data van de tabel op te halen
-		         String strSelect = String.format("SELECT * FROM %s", table_name);
+		         String strSelect = String.format("SELECT * FROM %s ORDER BY score DESC", table_name);
 		         
 		         // voert de query uit
 		         ResultSet rset = stmt.executeQuery(strSelect);
@@ -58,7 +58,7 @@ public class ShowData{
 		            int    performance_points   = rset.getInt(column_performance_points); 
 		            
 		            // maakt er een string van met een format string van en voegt de row toe aan de info arraylist
-		            String row = String.format("%s %d \n %s %s \n %s %d \n %s %d \n \n",table_id, id, column_user_name, user_name, column_score, score, column_performance_points, performance_points);
+		            String row = String.format("%d \n  %s \n %s %d \n %s %d \n \n", id, user_name, column_score, score, column_performance_points, performance_points);
 		            info.add(row);
 		            
 		         }
