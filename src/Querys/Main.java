@@ -1,6 +1,8 @@
 package Querys;
 import java.awt.Color;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -9,11 +11,31 @@ public class Main {
 
 	public static void main(String[] args) throws SQLException {
 		
+//		SendQuery a = new SendQuery(6,"Jan",200,40);
+		
 		JFrame frame = new JFrame("Scoreboard");
 		JPanel panel = new JPanel();
 		JPanel panel1 = new JPanel();
-		JLabel label = new JLabel(ShowData.read().get(0));
-		JLabel label1 = new JLabel(ShowData.read().get(1));
+		
+		
+		ArrayList<String> get = new ArrayList<String>();
+		
+		
+		
+		for(String i : ShowData.read()) {
+			get.add(i);
+		}
+		
+		JLabel[] a = new JLabel[get.size()];
+		
+		for(int i =0; i < get.size(); i++) {
+			a[i] = new JLabel(get.get(i));
+			a[i].setText(get.get(i));
+			a[i].setForeground(Color.white);
+			a[i].setLayout(null);
+			panel1.add(a[i]);
+			
+		}
 		
 		panel.setSize(450,725);
 		panel.setBackground(Color.black);
@@ -26,33 +48,22 @@ public class Main {
 		panel.setLocation(25, 20 );
 		panel.setLayout(null);
 		frame.getContentPane().add(panel);
-		frame.setLayout(null);
 		
-		
-		label.setForeground(Color.white);
-		label1.setForeground(Color.white);
-		panel1.add(label);
-		panel1.add(label1);
 		panel1.setSize(450,725);
 		panel1.setBackground(Color.blue);
 		panel1.setLocation(25, 20 );
 		panel1.setVisible(true);
+		frame.setLayout(null);
+		
+		
+		
 		panel.add(panel1);
 		
 		
-		int a = 0;
-		JLabel[] labels = new JLabel [25];
 		
-		for(String i : ShowData.read()) {
-			
-			labels[a] = new JLabel(ShowData.read().get(a));
-			labels[a].setForeground(Color.white);
-			labels[a].setLocation(22,23);
-			panel1.add(labels[a]);
-			System.out.println(a);
-			a++;
-			
-		}
+		
+		
+		
 		
 		
 		

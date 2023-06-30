@@ -43,7 +43,7 @@ public class ShowData{
 		      ) {
 		        
 				// De Query die nodig is om data van de tabel op te halen
-		         String strSelect = String.format("SELECT * FROM %s ORDER BY score DESC", table_name);
+		         String strSelect = String.format("SELECT * FROM %s ORDER BY score DESC,performance_points", table_name);
 		         
 		         // voert de query uit
 		         ResultSet rset = stmt.executeQuery(strSelect);
