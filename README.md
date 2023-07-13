@@ -1,4 +1,4 @@
-# mysql_for_xtapp
+# java_mysql
 
 Why:
 
