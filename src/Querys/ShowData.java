@@ -9,23 +9,26 @@ import Querys.SendQuery;
 
 
 public class ShowData{
+	
+	/*ALL STRINGS ARE SPECIFIC AND NEED TO BE CHANGED IN ORDER TO WORK FOR YOUR DATABASE CONNECTION*/
+	
 	// Database name
 	static final private String databaseName = "xtapp";
 		
-		//SQL table information 
-		static final private String table_name = "highscores";
+	//SQL table information 
+	static final private String table_name = "highscores";
 		
-		//SQL column information 
-		static final private String table_id = "id";
-		static final private String column_user_name = "user_name";
-		static final private String column_score = "score";
-		static final private String column_performance_points =  "performance_points"; 
+	//SQL column information 
+	static final private String table_id = "id";
+	static final private String column_user_name = "user_name";
+	static final private String column_score = "score";
+	static final private String column_performance_points =  "performance_points"; 
 		
-		//connection information
-		static final private String server_type = "mysql";
-		static final private String user = "root";
-		static final private String password = "";
-		static final private String connection = "jdbc:" + server_type + "://127.0.0.1:3306/" + databaseName +"?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
+	//connection information
+	static final private String server_type = "mysql";
+	static final private String user = "root";
+	static final private String password = "";
+	static final private String connection = "jdbc:" + server_type + "://127.0.0.1:3306/" + databaseName +"?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
 	
 	
 	
@@ -33,37 +36,31 @@ public class ShowData{
 		ArrayList<String> info = new ArrayList<String>();
 		
 		try (
-				
-				// maakt een connectie met de database
+
 		         Connection conn = DriverManager.getConnection(connection,user,password);   
-		         
-				// zorgt er voor dat er SQL statements kunnen worden uitgevoerd
+
 		         Statement stmt = conn.createStatement();
 				
 		      ) {
-		        
-				// De Query die nodig is om data van de tabel op te halen
+
 		         String strSelect = String.format("SELECT * FROM %s ORDER BY score DESC,performance_points", table_name);
-		         
-		         // voert de query uit
+		   
 		         ResultSet rset = stmt.executeQuery(strSelect);
 		         
-		         // kijkt wat er in de table zit
 		         while(rset.next()) {   
 		        	 
-		        	 // voegt de waarde van de rows toe aan datatypes
+		        	
 		        	int id = rset.getInt(table_id);
 		            String user_name = rset.getString(column_user_name);  
 		            int score = rset.getInt(column_score);  
 		            int    performance_points   = rset.getInt(column_performance_points); 
 		            
-		            // maakt er een string van met een format string van en voegt de row toe aan de info arraylist
+		            
 		            String row = String.format("%d \n  %s \n %s %d \n %s %d \n \n", id, user_name, column_score, score, column_performance_points, performance_points);
 		            info.add(row);
 		            
 		         }
 		         
-		         // returnt De arraylist 
 		         return info;
 		         
 		         
@@ -72,7 +69,6 @@ public class ShowData{
 		      }
 		
 		
-		// als de connectie niet werkt 
 		return null;
 	}
 
