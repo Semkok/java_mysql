@@ -3,7 +3,6 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;

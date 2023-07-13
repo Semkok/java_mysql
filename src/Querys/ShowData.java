@@ -10,7 +10,7 @@ import Querys.SendQuery;
 
 public class ShowData{
 	// Database name
-	static final private String databaseName = "rbout1897_xtp";
+	static final private String databaseName = "xtapp";
 		
 		//SQL table information 
 		static final private String table_name = "highscores";
@@ -23,9 +23,9 @@ public class ShowData{
 		
 		//connection information
 		static final private String server_type = "mysql";
-		static final private String user = "rbout1897_xtp";
-		static final private String password = "Bp136Ft3uLd8opuH";
-		static final private String connection = "jdbc:" + server_type + "://10.0.0.69:3306/" + databaseName +"?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
+		static final private String user = "root";
+		static final private String password = "";
+		static final private String connection = "jdbc:" + server_type + "://127.0.0.1:3306/" + databaseName +"?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
 	
 	
 	

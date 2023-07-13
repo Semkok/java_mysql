@@ -13,7 +13,7 @@ public class SendQuery {
 	 * VOOR EEN SPECIFIEKE DATABASE CONNECTIE, ZIE HIERVOOR DE STRINGS ZIJN NAMEN*/
 	
 	// Database name
-	final private String databaseName = "rbout1897_xtp";
+	final private String databaseName = "xtapp";
 	
 	//SQL table information 
 	final private String table_name = "highscores";
@@ -26,9 +26,9 @@ public class SendQuery {
 	
 	//connection information
 	final private String server_type = "mysql";
-	final private String user = "rbout1897_xtp";
-	final private String password = "Bp136Ft3uLd8opuH";
-	final private String connection = "jdbc:" + server_type + "://10.0.0.69:3306/" + databaseName +"?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
+	final private String user = "root";
+	final private String password = "";
+	final private String connection = "jdbc:" + server_type + "://127.0.0.1:3306/" + databaseName +"?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
 	
 	
 	
