@@ -4,7 +4,7 @@ Why:
 
 This was a project i was busy with in school when working in a team. 
 Its code that can send querys with jdbc mysql and show contents from a database.
-It was made for a rythmgame we were working on, and i was chozen to make a working query sender and data from a database receiver.
+It was made for a rythmgame we were working on, and i was chosen to make a working query sender and data from a database receiver.
 
 How to run:
 
